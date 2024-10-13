@@ -184,6 +184,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                 'fields' => [
                     [
                         'name' => 'validation_action',
+                        'description' => esc_html__( 'Select the validation action to perform on the field.', 'ait-validation-action-elementor-forms' ),
                         'label' => esc_html__( 'Validation Action', 'ait-validation-action-elementor-forms' ),
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'options' => [
@@ -198,6 +199,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     ],
                     [
                         'name' => 'validation_field_id',
+                        'description' => esc_html__( 'Enter the ID of the form field to validate. For optional fields, validation will only run if the field is not empty.', 'ait-validation-action-elementor-forms' ),
                         'label' => esc_html__( 'Validation Field ID', 'ait-validation-action-elementor-forms' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
                         'default' => '',
