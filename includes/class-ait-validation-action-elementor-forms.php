@@ -129,12 +129,26 @@ class Ait_Validation_Action_Elementor_Forms {
 
 	}
 
+	public function add_ait_validation_action( $form_actions_registrar ) {
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'actions/class-ait-validation-action.php';
+
+		$form_actions_registrar->register( new \Ait_Validation_Action() );
+	}
+
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
 	 * @since    1.0.0
 	 */
 	public function run() {
+
+		$this->loader->add_action(
+			'elementor_pro/forms/actions/register',
+			$this,
+			'add_ait_validation_action'
+		);
+
 		$this->loader->run();
 	}
 
