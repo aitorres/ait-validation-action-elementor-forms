@@ -1,4 +1,4 @@
-=== Validation Action for Elementor Forms ===
+=== Form Validation Action Addon for Elementor ===
 Contributors: andresitorresm
 Donate link: https://aitorres.com/
 Tags: elementor, elementor-forms, validation
@@ -8,11 +8,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add a validation action to your Elementor Forms to run server-side validation for your form fields.
+Add a custom validation action for Forms to your Elementor installation to run server-side validation for your form fields.
 
 == Description ==
 
-**Validation Action for Elementor Forms** allows you to add server-side validation actions to your Elementor
+**Validation Action Add-on for Elementor Forms** is a custom add-on that allows you to add server-side validation actions to your Elementor
 Forms. These validations can run before any other action is processed (e.g. sending an email, collecting submissions)
 to easily ensure the user input matches validation logic chosen by you.
 

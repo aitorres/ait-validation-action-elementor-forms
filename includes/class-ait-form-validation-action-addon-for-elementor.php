@@ -72,7 +72,7 @@ class Ait_Validation_Action_Elementor_Forms {
         } else {
             $this->version = '1.0.0';
         }
-        $this->plugin_name = 'ait-validation-action-elementor-forms';
+        $this->plugin_name = 'ait-form-validation-action-addon-for-elementor';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -100,13 +100,13 @@ class Ait_Validation_Action_Elementor_Forms {
          * The class responsible for orchestrating the actions of the
          * core plugin.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-validation-action-elementor-forms-loader.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-form-validation-action-addon-for-elementor-loader.php';
 
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-validation-action-elementor-forms-i18n.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-form-validation-action-addon-for-elementor-i18n.php';
 
         $this->loader = new Ait_Validation_Action_Elementor_Forms_Loader();
 

@@ -37,7 +37,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
      * @return string
      */
     public function get_label() {
-        return esc_html__( 'AIT Validation Action', 'ait-validation-action-elementor-forms' );
+        return esc_html__( 'AIT Validation Action', 'ait-form-validation-action-addon-for-elementor' );
     }
 
     /**
@@ -93,7 +93,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         $ajax_handler->add_error(
                             $validation_field_id,
                             /* translators: %d: minimum length */
-                            sprintf( esc_html__( 'Field must be at least %d characters long.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                            sprintf( esc_html__( 'Field must be at least %d characters long.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
                         );
                     }
                     break;
@@ -102,7 +102,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         $ajax_handler->add_error(
                             $validation_field_id,
                             /* translators: %d: maximum length */
-                            sprintf( esc_html__( 'Field must be at most %d characters long.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                            sprintf( esc_html__( 'Field must be at most %d characters long.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
                         );
                     }
                     break;
@@ -111,7 +111,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         $ajax_handler->add_error(
                             $validation_field_id,
                             /* translators: %s: validation value the field must start with */
-                            sprintf( esc_html__( 'Field must start with %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                            sprintf( esc_html__( 'Field must start with %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
                         );
                     }
                     break;
@@ -120,7 +120,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         $ajax_handler->add_error(
                             $validation_field_id,
                             /* translators: %s: validation value the field must end with */
-                            sprintf( esc_html__( 'Field must end with %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                            sprintf( esc_html__( 'Field must end with %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
                         );
                     }
                     break;
@@ -129,7 +129,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         $ajax_handler->add_error(
                             $validation_field_id,
                             /* translators: %s: validation value the field must contain */
-                            sprintf( esc_html__( 'Field must contain %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                            sprintf( esc_html__( 'Field must contain %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
                         );
                     }
                     break;
@@ -145,7 +145,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     if ( $field_value !== $field_to_match ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
-                            esc_html__( 'Field does not match the required field.', 'ait-validation-action-elementor-forms' )
+                            esc_html__( 'Field does not match the required field.', 'ait-form-validation-action-addon-for-elementor' )
                         );
                     }
                     break;
@@ -169,7 +169,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
         $widget->start_controls_section(
             'section_ait_validation_action',
             [
-                'label' => esc_html__( 'AIT Validation Action', 'ait-validation-action-elementor-forms' ),
+                'label' => esc_html__( 'AIT Validation Action', 'ait-form-validation-action-addon-for-elementor' ),
                 'condition' => [
                     'submit_actions' => $this->get_name(),
                 ],
@@ -179,35 +179,35 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
         $widget->add_control(
             'ait_form_validations',
             [
-                'label' => esc_html__( 'Form Validations', 'ait-validation-action-elementor-forms' ),
+                'label' => esc_html__( 'Form Validations', 'ait-form-validation-action-addon-for-elementor' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => [
                     [
                         'name' => 'validation_action',
-                        'description' => esc_html__( 'Select the validation action to perform on the field.', 'ait-validation-action-elementor-forms' ),
-                        'label' => esc_html__( 'Validation Action', 'ait-validation-action-elementor-forms' ),
+                        'description' => esc_html__( 'Select the validation action to perform on the field.', 'ait-form-validation-action-addon-for-elementor' ),
+                        'label' => esc_html__( 'Validation Action', 'ait-form-validation-action-addon-for-elementor' ),
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'options' => [
-                            'min_length' => esc_html__( 'Minimum Length', 'ait-validation-action-elementor-forms' ),
-                            'max_length' => esc_html__( 'Maximum Length', 'ait-validation-action-elementor-forms' ),
-                            'starts_with' => esc_html__( 'Starts With', 'ait-validation-action-elementor-forms' ),
-                            'ends_with' => esc_html__( 'Ends With', 'ait-validation-action-elementor-forms' ),
-                            'contains' => esc_html__( 'Contains', 'ait-validation-action-elementor-forms' ),
-                            'matches_field' => esc_html__( 'Matches Field', 'ait-validation-action-elementor-forms' ),
+                            'min_length' => esc_html__( 'Minimum Length', 'ait-form-validation-action-addon-for-elementor' ),
+                            'max_length' => esc_html__( 'Maximum Length', 'ait-form-validation-action-addon-for-elementor' ),
+                            'starts_with' => esc_html__( 'Starts With', 'ait-form-validation-action-addon-for-elementor' ),
+                            'ends_with' => esc_html__( 'Ends With', 'ait-form-validation-action-addon-for-elementor' ),
+                            'contains' => esc_html__( 'Contains', 'ait-form-validation-action-addon-for-elementor' ),
+                            'matches_field' => esc_html__( 'Matches Field', 'ait-form-validation-action-addon-for-elementor' ),
                         ],
                         'default' => 'min_length',
                     ],
                     [
                         'name' => 'validation_field_id',
-                        'description' => esc_html__( 'Enter the ID of the form field to validate. For optional fields, validation will only run if the field is not empty.', 'ait-validation-action-elementor-forms' ),
-                        'label' => esc_html__( 'Validation Field ID', 'ait-validation-action-elementor-forms' ),
+                        'description' => esc_html__( 'Enter the ID of the form field to validate. For optional fields, validation will only run if the field is not empty.', 'ait-form-validation-action-addon-for-elementor' ),
+                        'label' => esc_html__( 'Validation Field ID', 'ait-form-validation-action-addon-for-elementor' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
                         'default' => '',
                     ],
                     [
                         'name' => 'validation_value',
-                        'description' => esc_html__( 'Enter the value to validate against. For `Matches Field`, this should be another form field ID.', 'ait-validation-action-elementor-forms' ),
-                        'label' => esc_html__( 'Validation Value', 'ait-validation-action-elementor-forms' ),
+                        'description' => esc_html__( 'Enter the value to validate against. For `Matches Field`, this should be another form field ID.', 'ait-form-validation-action-addon-for-elementor' ),
+                        'label' => esc_html__( 'Validation Value', 'ait-form-validation-action-addon-for-elementor' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
                         'default' => '',
                     ]

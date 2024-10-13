@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Validation Action for Elementor Forms 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ait-validation-action-elementor-forms\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ait-form-validation-action-addon-for-elementor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,30 +12,30 @@ msgstr ""
 "POT-Creation-Date: 2024-10-13T06:44:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
-"X-Domain: ait-validation-action-elementor-forms\n"
+"X-Domain: ait-form-validation-action-addon-for-elementor\n"
 
 #. Plugin Name of the plugin
-#: ait-validation-action-elementor-forms.php
+#: ait-form-validation-action-addon-for-elementor.php
 msgid "Validation Action for Elementor Forms"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: ait-validation-action-elementor-forms.php
+#: ait-form-validation-action-addon-for-elementor.php
 msgid "https://aitorres.com/projects/validation-action-elementor-forms"
 msgstr ""
 
 #. Description of the plugin
-#: ait-validation-action-elementor-forms.php
+#: ait-form-validation-action-addon-for-elementor.php
 msgid "Add a validation action to your Elementor Forms to run server-side validation for your form fields."
 msgstr ""
 
 #. Author of the plugin
-#: ait-validation-action-elementor-forms.php
+#: ait-form-validation-action-addon-for-elementor.php
 msgid "Andrés Ignacio Torres"
 msgstr ""
 
 #. Author URI of the plugin
-#: ait-validation-action-elementor-forms.php
+#: ait-form-validation-action-addon-for-elementor.php
 msgid "https://aitorres.com/"
 msgstr ""
 

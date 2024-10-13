@@ -35,7 +35,7 @@ class Ait_Validation_Action_Elementor_Forms_i18n {
     public function load_plugin_textdomain() {
 
         load_plugin_textdomain(
-            'ait-validation-action-elementor-forms',
+            'ait-form-validation-action-addon-for-elementor',
             false,
             dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
         );
