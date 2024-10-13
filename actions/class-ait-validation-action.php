@@ -97,6 +97,15 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
+                case 'max_length':
+                    if ( strlen( $field_value ) > $validation_value ) {
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %d: maximum length */
+                            sprintf( esc_html__( 'Field must be at most %d characters long.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
+                    }
+                    break;
                 case 'starts_with':
                     if ( strpos( $field_value, $validation_value ) !== 0 ) {
                         $ajax_handler->add_error(
@@ -127,7 +136,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                 case 'matches_field':
                     // Checking if the field to match exists in the form
                     if ( ! isset( $fields[ $validation_value ] ) ) {
-                        continue;
+                        break;
                     }
 
                     // Get the field value to match
@@ -139,6 +148,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                             esc_html__( 'Field does not match the required field.', 'ait-validation-action-elementor-forms' )
                         );
                     }
+                    break;
             }
         }
 
@@ -178,6 +188,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'options' => [
                             'min_length' => esc_html__( 'Minimum Length', 'ait-validation-action-elementor-forms' ),
+                            'max_length' => esc_html__( 'Maximum Length', 'ait-validation-action-elementor-forms' ),
                             'starts_with' => esc_html__( 'Starts With', 'ait-validation-action-elementor-forms' ),
                             'ends_with' => esc_html__( 'Ends With', 'ait-validation-action-elementor-forms' ),
                             'contains' => esc_html__( 'Contains', 'ait-validation-action-elementor-forms' ),

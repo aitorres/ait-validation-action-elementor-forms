@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-13T05:45:07+00:00\n"
+"POT-Creation-Date: 2024-10-13T06:32:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: ait-validation-action-elementor-forms\n"
@@ -40,7 +40,7 @@ msgid "https://aitorres.com/"
 msgstr ""
 
 #: actions/class-ait-validation-action.php:40
-#: actions/class-ait-validation-action.php:162
+#: actions/class-ait-validation-action.php:171
 msgid "AIT Validation Action"
 msgstr ""
 
@@ -49,61 +49,70 @@ msgstr ""
 msgid "Field must be at least %d characters long."
 msgstr ""
 
-#. translators: %s: validation value the field must start with
+#. translators: %d: maximum length
 #: actions/class-ait-validation-action.php:105
+msgid "Field must be at most %d characters long."
+msgstr ""
+
+#. translators: %s: validation value the field must start with
+#: actions/class-ait-validation-action.php:114
 msgid "Field must start with %s."
 msgstr ""
 
 #. translators: %s: validation value the field must end with
-#: actions/class-ait-validation-action.php:114
+#: actions/class-ait-validation-action.php:123
 msgid "Field must end with %s."
 msgstr ""
 
 #. translators: %s: validation value the field must contain
-#: actions/class-ait-validation-action.php:123
+#: actions/class-ait-validation-action.php:132
 msgid "Field must contain %s."
 msgstr ""
 
-#: actions/class-ait-validation-action.php:139
+#: actions/class-ait-validation-action.php:148
 msgid "Field does not match the required field."
 msgstr ""
 
-#: actions/class-ait-validation-action.php:172
+#: actions/class-ait-validation-action.php:184
 msgid "Form Validations"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:177
+#: actions/class-ait-validation-action.php:189
 msgid "Validation Action"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:180
+#: actions/class-ait-validation-action.php:192
 msgid "Minimum Length"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:181
+#: actions/class-ait-validation-action.php:193
+msgid "Maximum Length"
+msgstr ""
+
+#: actions/class-ait-validation-action.php:194
 msgid "Starts With"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:182
+#: actions/class-ait-validation-action.php:195
 msgid "Ends With"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:183
+#: actions/class-ait-validation-action.php:196
 msgid "Contains"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:184
+#: actions/class-ait-validation-action.php:197
 msgid "Matches Field"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:190
+#: actions/class-ait-validation-action.php:203
 msgid "Validation Field ID"
 msgstr ""
 
-#: actions/class-ait-validation-action.php:196
+#: actions/class-ait-validation-action.php:210
 msgid "Enter the value to validate against. For `Matches Field`, this should be another form field ID."
 msgstr ""
 
-#: actions/class-ait-validation-action.php:197
+#: actions/class-ait-validation-action.php:211
 msgid "Validation Value"
 msgstr ""
