@@ -210,7 +210,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     ]
                 ],
                 'default' => [],
-                'title_field' => '{{{ validation_field }}}',
+                'title_field' => '{{{ validation_field_id }}} - {{{ validation_action }}} - {{{ validation_value }}}',
             ]
         );
 
