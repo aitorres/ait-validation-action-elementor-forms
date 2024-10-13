@@ -55,7 +55,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
 	 */
 	public function run( $record, $ajax_handler ) {
 
-        $settings = $record->get( 'form-settings' );
+        $settings = $record->get( 'form_settings' );
 
         // Make sure that there are validations to run.
         if ( empty( $settings['ait_form_validations'] ) ) {
@@ -97,24 +97,6 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'less_than':
-                    if ( $field_value >= $validation_value ) {
-                        $ajax_handler->add_error(
-                            $validation_field_id,
-                            /* translators: %s: upper limit */
-                            sprintf( esc_html__( 'Field must be less than %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
-                        );
-                    }
-                    break;
-                case 'greater_than':
-                    if ( $field_value <= $validation_value ) {
-                        $ajax_handler->add_error(
-                            $validation_field_id,
-                            /* translators: %s: lower limit*/
-                            sprintf( esc_html__( 'Field must be greater than %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
-                        );
-                    }
-                    break;
                 case 'starts_with':
                     if ( strpos( $field_value, $validation_value ) !== 0 ) {
                         $ajax_handler->add_error(
@@ -142,13 +124,21 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'regex':
-                    if ( ! preg_match( $validation_value, $field_value ) ) {
+                case 'matches_field':
+                    // Checking if the field to match exists in the form
+                    if ( ! isset( $fields[ $validation_value ] ) ) {
+                        continue;
+                    }
+
+                    // Get the field value to match
+                    $field_to_match = $fields[ $validation_value ];
+
+                    if ( $field_value !== $field_to_match ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
-                            esc_html__( 'Field does not match the required pattern', 'ait-validation-action-elementor-forms' ) );
+                            esc_html__( 'Field does not match the required field.', 'ait-validation-action-elementor-forms' )
+                        );
                     }
-                    break;
             }
         }
 
@@ -187,12 +177,10 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'options' => [
                             'min_length' => esc_html__( 'Minimum Length', 'ait-validation-action-elementor-forms' ),
-                            'less_than' => esc_html__( 'Less Than', 'ait-validation-action-elementor-forms' ),
-                            'greater_than' => esc_html__( 'Greater Than', 'ait-validation-action-elementor-forms' ),
                             'starts_with' => esc_html__( 'Starts With', 'ait-validation-action-elementor-forms' ),
                             'ends_with' => esc_html__( 'Ends With', 'ait-validation-action-elementor-forms' ),
                             'contains' => esc_html__( 'Contains', 'ait-validation-action-elementor-forms' ),
-                            'regex' => esc_html__( 'Regular Expression', 'ait-validation-action-elementor-forms' ),
+                            'matches_field' => esc_html__( 'Matches Field', 'ait-validation-action-elementor-forms' ),
                         ],
                         'default' => 'min_length',
                     ],
@@ -204,6 +192,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     ],
                     [
                         'name' => 'validation_value',
+                        'description' => esc_html__( 'Enter the value to validate against. For `Matches Field`, this should be another form field ID.', 'ait-validation-action-elementor-forms' ),
                         'label' => esc_html__( 'Validation Value', 'ait-validation-action-elementor-forms' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
                         'default' => '',
