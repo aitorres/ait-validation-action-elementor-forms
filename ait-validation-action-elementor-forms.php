@@ -31,7 +31,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 /**
@@ -58,8 +58,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-ait-validation-action-elem
  */
 function run_ait_validation_action_elementor_forms() {
 
-	$plugin = new Ait_Validation_Action_Elementor_Forms();
-	$plugin->run();
+    $plugin = new Ait_Validation_Action_Elementor_Forms();
+    $plugin->run();
 
 }
 run_ait_validation_action_elementor_forms();

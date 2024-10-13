@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 /**
@@ -14,46 +14,46 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_Base {
 
-	/**
-	 * Get action name.
-	 *
-	 * Retrieve AIT Validation Action name.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string
-	 */
-	public function get_name() {
-		return 'ait-validation-action';
-	}
+    /**
+     * Get action name.
+     *
+     * Retrieve AIT Validation Action name.
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string
+     */
+    public function get_name() {
+        return 'ait-validation-action';
+    }
 
-	/**
-	 * Get action label.
-	 *
-	 * Retrieve AIT Validation Action label.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string
-	 */
-	public function get_label() {
-		return esc_html__( 'AIT Validation Action', 'ait-validation-action-elementor-forms' );
-	}
+    /**
+     * Get action label.
+     *
+     * Retrieve AIT Validation Action label.
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string
+     */
+    public function get_label() {
+        return esc_html__( 'AIT Validation Action', 'ait-validation-action-elementor-forms' );
+    }
 
-	/**
-	 * Run action.
-	 *
-	 * Run custom validations and prevent the form from being submitted
+    /**
+     * Run action.
+     *
+     * Run custom validations and prevent the form from being submitted
      * and processed in case of validation errors.
      *
      * Report validation errors to the user via the AJAX handler.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @param \ElementorPro\Modules\Forms\Classes\Form_Record  $record
-	 * @param \ElementorPro\Modules\Forms\Classes\Ajax_Handler $ajax_handler
-	 */
-	public function run( $record, $ajax_handler ) {
+     *
+     * @since 1.0.0
+     * @access public
+     * @param \ElementorPro\Modules\Forms\Classes\Form_Record  $record
+     * @param \ElementorPro\Modules\Forms\Classes\Ajax_Handler $ajax_handler
+     */
+    public function run( $record, $ajax_handler ) {
 
         $settings = $record->get( 'form_settings' );
 
@@ -63,13 +63,13 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
         }
 
         // Get submitted form data.
-		$raw_fields = $record->get( 'fields' );
+        $raw_fields = $record->get( 'fields' );
 
-		// Normalize form data.
-		$fields = [];
-		foreach ( $raw_fields as $id => $field ) {
-			$fields[ $id ] = $field['value'];
-		}
+        // Normalize form data.
+        $fields = [];
+        foreach ( $raw_fields as $id => $field ) {
+            $fields[ $id ] = $field['value'];
+        }
 
         // Iterate over validations to run them
         foreach ( $settings['ait_form_validations'] as $index => $item ) {
@@ -142,18 +142,19 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
             }
         }
 
-	}
+    }
 
-	/**
-	 * Register action controls.
-	 *
-	 * AIT Validation Action has no input fields to the form widget.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @param \Elementor\Widget_Base $widget
-	 */
-	public function register_settings_section( $widget ) {
+    /**
+     * Register action controls.
+     *
+     * Allows users to set up a series of validations comprised
+     * of action, field ID, and validation value.
+     *
+     * @since 1.0.0
+     * @access public
+     * @param \Elementor\Widget_Base $widget
+     */
+    public function register_settings_section( $widget ) {
 
         $widget->start_controls_section(
             'section_ait_validation_action',
@@ -207,15 +208,15 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
 
     }
 
-	/**
-	 * On export.
-	 *
-	 * AIT Validation Action has no fields to clear when exporting.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @param array $element
-	 */
-	public function on_export( $element ) {}
+    /**
+     * On export.
+     *
+     * AIT Validation Action has no fields to clear when exporting.
+     *
+     * @since 1.0.0
+     * @access public
+     * @param array $element
+     */
+    public function on_export( $element ) {}
 
 }
