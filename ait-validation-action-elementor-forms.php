@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Validation Action for Elementor Forms
  * Plugin URI:        https://aitorres.com/projects/validation-action-elementor-forms
- * Description:       Add a validation action to your Elementor Forms and set up specific server validation (min value, max value, min length, regex and more) for your form fields.
+ * Description:       Add a validation action to your Elementor Forms to run server-side validation for your form fields.
  * Version:           1.0.0
  * Author:            Andrés Ignacio Torres
  * Author URI:        https://aitorres.com/

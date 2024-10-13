@@ -90,37 +90,63 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
             switch ( $validation_action ) {
                 case 'min_length':
                     if ( strlen( $field_value ) < $validation_value ) {
-                        $ajax_handler->add_error( $validation_field_id, sprintf( esc_html__( 'Field must be at least %d characters long.', 'ait-validation-action-elementor-forms' ), $validation_value ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %d: minimum length */
+                            sprintf( esc_html__( 'Field must be at least %d characters long.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
                     }
                     break;
                 case 'less_than':
                     if ( $field_value >= $validation_value ) {
-                        $ajax_handler->add_error( $validation_field_id, sprintf( esc_html__( 'Field must be less than %s.', 'ait-validation-action-elementor-forms' ), $validation_value ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: upper limit */
+                            sprintf( esc_html__( 'Field must be less than %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
                     }
                     break;
                 case 'greater_than':
                     if ( $field_value <= $validation_value ) {
-                        $ajax_handler->add_error( $validation_field_id, sprintf( esc_html__( 'Field must be greater than %s.', 'ait-validation-action-elementor-forms' ), $validation_value ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: lower limit*/
+                            sprintf( esc_html__( 'Field must be greater than %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
                     }
                     break;
                 case 'starts_with':
                     if ( strpos( $field_value, $validation_value ) !== 0 ) {
-                        $ajax_handler->add_error( $validation_field_id, sprintf( esc_html__( 'Field must start with %s.', 'ait-validation-action-elementor-forms' ), $validation_value ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: validation value the field must start with */
+                            sprintf( esc_html__( 'Field must start with %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
                     }
                     break;
                 case 'ends_with':
                     if ( substr( $field_value, -strlen( $validation_value ) ) !== $validation_value ) {
-                        $ajax_handler->add_error( $validation_field_id, sprintf( esc_html__( 'Field must end with %s.', 'ait-validation-action-elementor-forms' ), $validation_value ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: validation value the field must end with */
+                            sprintf( esc_html__( 'Field must end with %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
                     }
                     break;
                 case 'contains':
                     if ( strpos( $field_value, $validation_value ) === false ) {
-                        $ajax_handler->add_error( $validation_field_id, sprintf( esc_html__( 'Field must contain %s.', 'ait-validation-action-elementor-forms' ), $validation_value ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: validation value the field must contain */
+                            sprintf( esc_html__( 'Field must contain %s.', 'ait-validation-action-elementor-forms' ), $validation_value )
+                        );
                     }
                     break;
                 case 'regex':
                     if ( ! preg_match( $validation_value, $field_value ) ) {
-                        $ajax_handler->add_error( $validation_field_id, esc_html__( 'Field does not match the required pattern', 'ait-validation-action-elementor-forms' ) );
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            esc_html__( 'Field does not match the required pattern', 'ait-validation-action-elementor-forms' ) );
                     }
                     break;
             }

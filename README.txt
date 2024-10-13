@@ -3,13 +3,12 @@ Contributors: andresitorresm
 Donate link: https://aitorres.com/
 Tags: elementor, elementor-forms, validation
 Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tested up to: 6.6
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add a validation action to your Elementor Forms and set up specific server validation (min value,
-max value, min length, regex and more) for your form fields.
+Add a validation action to your Elementor Forms to run server-side validation for your form fields.
 
 == Description ==
 
