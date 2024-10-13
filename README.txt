@@ -12,103 +12,60 @@ Add a validation action to your Elementor Forms to run server-side validation fo
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+**Validation Action for Elementor Forms** allows you to add server-side validation actions to your Elementor
+Forms. These validations can run before any other action is processed (e.g. sending an email, collecting submissions)
+to easily ensure the user input matches validation logic chosen by you.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+You can specify one or multiple validation actions for each one of your form fields based on their ID. Each validation
+will run independently from others, and if any action does not succeed, the user will get visual feedback.
 
-A few notes about the sections above:
+Supported actions include:
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+- Maximum length for a field
+- Minimum length for a field
+- Field must start with a given value
+- Field must end with a given value
+- Field must contain a given value
+- Content of a field must match content of another field (e.g. "Password" and "Confirm password")
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+Validations set for optional fields will only run if the field is not empty.
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+**Elementor** and **Elementor Pro** are required in order to install and use this plugin.
 
-e.g.
+You can install the plugin from your WordPress admin dashboard by either looking it up on the
+plugin directory, or manually uploading the ZIP file to your site.
 
-1. Upload `ait-validation-action-elementor-forms.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+Once the plugin is done, you can select the "*AIT Validation Action*" option when selecting
+actions on your Elementor Forms. Once you select the action, a new settings block will appear
+to let you setup each field's validations.
+
+It is recommended to set the "*AIT Validation Action*" to run _before_ any other actions, in
+order to block further processing if the fields don't validate as expected.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Can I setup multiple validations for a field? =
 
-An answer to that question.
+Yes! You can set up as many validations as you want. Keep in mind that the plugin will *not*
+verify whether the validations you setup contradict each other (e.g. minimum length of 6 but
+maximum length of 4).
 
-= What about foo bar? =
+= Can I setup validations for an optional field? =
 
-Answer to foo bar dilemma.
+Yes! The validation will only run if the field is not empty. Otherwise it will be skipped.
+
+= Do I have to setup validations for all my fields? =
+
+No! You can specify validation actions for just one field, or as many as you'd like.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Screenshot of the plugin in action, with custom validations either passing or failing on each field.
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+= 1.0.0 =
+* Initial release.
