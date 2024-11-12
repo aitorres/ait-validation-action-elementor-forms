@@ -3,6 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
+plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-form-validation-action-addon-for-elementor-constants.php';
+
 /**
  * AIT Validation Action for Elementor Forms.
  *
@@ -88,7 +90,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
 
             // Run the validation
             switch ( $validation_action ) {
-                case 'min_length':
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_LENGTH:
                     if ( strlen( $field_value ) < $validation_value ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
@@ -97,7 +99,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'max_length':
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MAX_LENGTH:
                     if ( strlen( $field_value ) > $validation_value ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
@@ -106,7 +108,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'starts_with':
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_STARTS_WITH:
                     if ( strpos( $field_value, $validation_value ) !== 0 ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
@@ -115,7 +117,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'ends_with':
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_ENDS_WITH:
                     if ( substr( $field_value, -strlen( $validation_value ) ) !== $validation_value ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
@@ -124,7 +126,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'contains':
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_CONTAINS:
                     if ( strpos( $field_value, $validation_value ) === false ) {
                         $ajax_handler->add_error(
                             $validation_field_id,
@@ -133,7 +135,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
-                case 'matches_field':
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MATCHES_FIELD:
                     // Checking if the field to match exists in the form
                     if ( ! isset( $fields[ $validation_value ] ) ) {
                         break;
@@ -188,14 +190,14 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         'label' => esc_html__( 'Validation Action', 'ait-form-validation-action-addon-for-elementor' ),
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'options' => [
-                            'min_length' => esc_html__( 'Minimum Length', 'ait-form-validation-action-addon-for-elementor' ),
-                            'max_length' => esc_html__( 'Maximum Length', 'ait-form-validation-action-addon-for-elementor' ),
-                            'starts_with' => esc_html__( 'Starts With', 'ait-form-validation-action-addon-for-elementor' ),
-                            'ends_with' => esc_html__( 'Ends With', 'ait-form-validation-action-addon-for-elementor' ),
-                            'contains' => esc_html__( 'Contains', 'ait-form-validation-action-addon-for-elementor' ),
-                            'matches_field' => esc_html__( 'Matches Field', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_LENGTH => esc_html__( 'Minimum Length', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MAX_LENGTH => esc_html__( 'Maximum Length', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_STARTS_WITH => esc_html__( 'Starts With', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_ENDS_WITH => esc_html__( 'Ends With', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_CONTAINS => esc_html__( 'Contains', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MATCHES_FIELD => esc_html__( 'Matches Field', 'ait-form-validation-action-addon-for-elementor' ),
                         ],
-                        'default' => 'min_length',
+                        'default' => Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_LENGTH,
                     ],
                     [
                         'name' => 'validation_field_id',
