@@ -4,7 +4,7 @@ Donate link: https://aitorres.com/
 Tags: elementor, elementor-forms, validation
 Requires at least: 3.0.1
 Tested up to: 6.6
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,8 @@ Supported actions include:
 
 - Maximum length for a field
 - Minimum length for a field
+- Maximum amount of words in a field
+- Minimum amount of words in a field
 - Field must start with a given value
 - Field must end with a given value
 - Field must contain a given value
@@ -66,6 +68,12 @@ No! You can specify validation actions for just one field, or as many as you'd l
 1. Screenshot of the plugin in action, with custom validations either passing or failing on each field.
 
 == Changelog ==
+
+= 1.1.0 =
+* Introduce two new possible validation actions:
+  1. Minimum words
+  2. Maximum words
+* Code refactors.
 
 = 1.0.0 =
 * Initial release.
