@@ -169,6 +169,24 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_AFTER_THAN:
+                    if ( strtotime( $field_value ) <= strtotime( $validation_value ) ) {
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: validation value the field must be after */
+                            sprintf( esc_html__( 'Field must be after %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                        );
+                    }
+                    break;
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_BEFORE_THAN:
+                    if ( strtotime( $field_value ) >= strtotime( $validation_value ) ) {
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: validation value the field must be before */
+                            sprintf( esc_html__( 'Field must be before %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                        );
+                    }
+                    break;
             }
         }
 
@@ -216,6 +234,8 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                             Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MATCHES_FIELD => esc_html__( 'Matches Field', 'ait-form-validation-action-addon-for-elementor' ),
                             Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_WORDS => esc_html__( 'Minimum Words', 'ait-form-validation-action-addon-for-elementor' ),
                             Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MAX_WORDS => esc_html__( 'Maximum Words', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_AFTER_THAN => esc_html__( 'After Than', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_BEFORE_THAN => esc_html__( 'Before Than', 'ait-form-validation-action-addon-for-elementor' ),
                         ],
                         'default' => Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_LENGTH,
                     ],

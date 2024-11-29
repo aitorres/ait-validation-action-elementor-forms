@@ -31,4 +31,6 @@ class Ait_Validation_Action_Elementor_Forms_Constants {
     const ACTION_MATCHES_FIELD = 'matches_field';
     const ACTION_MIN_WORDS = 'min_words';
     const ACTION_MAX_WORDS = 'max_words';
+    const ACTION_BEFORE_THAN = 'before_than';
+    const ACTION_AFTER_THAN = 'after_than';
 }
