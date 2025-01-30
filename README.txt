@@ -4,7 +4,7 @@ Donate link: https://aitorres.com/
 Tags: elementor, elementor-forms, validation
 Requires at least: 3.0.1
 Tested up to: 6.7
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,9 @@ No! You can specify validation actions for just one field, or as many as you'd l
 1. Screenshot of the plugin in action, with custom validations either passing or failing on each field.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fix error with file not being loaded properly.
 
 = 1.2.0 =
 * Introduce two new pairs of validation actions:

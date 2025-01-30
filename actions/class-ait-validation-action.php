@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-form-validation-action-addon-for-elementor-constants.php';
+require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ait-form-validation-action-addon-for-elementor-constants.php';
 
 /**
  * AIT Validation Action for Elementor Forms.
