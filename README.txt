@@ -3,8 +3,8 @@ Contributors: andresitorresm
 Donate link: https://aitorres.com/
 Tags: elementor, elementor-forms, validation
 Requires at least: 3.0.1
-Tested up to: 6.7
-Stable tag: 1.2.1
+Tested up to: 6.8
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,7 @@ Supported actions include:
 - Content of a field must match content of another field (e.g. "Password" and "Confirm password")
 - Content of a field must be before / after a given date
 - Content of a field must be before / after another field
+- Field must match a specific regular expression pattern (e.g. email format, phone number)
 
 Validations set for optional fields will only run if the field is not empty.
 
@@ -70,6 +71,10 @@ No! You can specify validation actions for just one field, or as many as you'd l
 1. Screenshot of the plugin in action, with custom validations either passing or failing on each field.
 
 == Changelog ==
+
+= 1.3.0 =
+* Introduced a new validation action: matches a regular expression.
+* Tested against WordPress 6.8 and the latest Elementor version.
 
 = 1.2.1 =
 * Fix error with file not being loaded properly.

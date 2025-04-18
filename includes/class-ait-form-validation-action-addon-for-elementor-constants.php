@@ -35,4 +35,5 @@ class Ait_Validation_Action_Elementor_Forms_Constants {
     const ACTION_AFTER_THAN = 'after_than';
     const ACTION_BEFORE_THAN_FIELD = 'before_than_field';
     const ACTION_AFTER_THAN_FIELD = 'after_than_field';
+    const ACTION_MATCHES_REGEX = 'matches_regex';
 }

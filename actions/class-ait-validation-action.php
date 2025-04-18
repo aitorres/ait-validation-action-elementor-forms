@@ -219,6 +219,15 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         );
                     }
                     break;
+                case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MATCHES_REGEX:
+                    if ( ! preg_match( $validation_value, $field_value ) ) {
+                        $ajax_handler->add_error(
+                            $validation_field_id,
+                            /* translators: %s: validation value the field must match */
+                            sprintf( esc_html__( 'Field must match the required pattern %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                        );
+                    }
+                    break;
             }
         }
 
@@ -270,6 +279,7 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                             Ait_Validation_Action_Elementor_Forms_Constants::ACTION_BEFORE_THAN => esc_html__( 'Before Than', 'ait-form-validation-action-addon-for-elementor' ),
                             Ait_Validation_Action_Elementor_Forms_Constants::ACTION_AFTER_THAN_FIELD => esc_html__( 'After Than Field', 'ait-form-validation-action-addon-for-elementor' ),
                             Ait_Validation_Action_Elementor_Forms_Constants::ACTION_BEFORE_THAN_FIELD => esc_html__( 'Before Than Field', 'ait-form-validation-action-addon-for-elementor' ),
+                            Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MATCHES_REGEX => esc_html__( 'Matches Regex', 'ait-form-validation-action-addon-for-elementor' ),
                         ],
                         'default' => Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_LENGTH,
                     ],
