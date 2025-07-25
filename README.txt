@@ -4,7 +4,7 @@ Donate link: https://aitorres.com/
 Tags: elementor, elementor-forms, validation
 Requires at least: 3.0.1
 Tested up to: 6.8
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,8 @@ Supported actions include:
 - Field must match a specific regular expression pattern (e.g. email format, phone number)
 
 Validations set for optional fields will only run if the field is not empty.
+
+Custom validation messages can also be configured for each action independently.
 
 
 == Installation ==
@@ -71,6 +73,9 @@ No! You can specify validation actions for just one field, or as many as you'd l
 1. Screenshot of the plugin in action, with custom validations either passing or failing on each field.
 
 == Changelog ==
+
+= 1.4.0 =
+* Introduce a new field on each validation action to optionally set up a custom validation message.
 
 = 1.3.0 =
 * Introduced a new validation action: matches a regular expression.

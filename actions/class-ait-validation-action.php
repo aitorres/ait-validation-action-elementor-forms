@@ -79,6 +79,9 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
             $validation_action = $item['validation_action'];
             $validation_field_id = $item['validation_field_id'];
             $validation_value = $item['validation_value'];
+            $custom_error_message = isset($item['custom_error_message']) && !empty($item['custom_error_message'])
+                ? $item['custom_error_message']
+                : '';
 
             // Checking if the field exists in the form
             if ( ! isset( $fields[ $validation_field_id ] ) ) {
@@ -92,64 +95,78 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
             switch ( $validation_action ) {
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_LENGTH:
                     if ( strlen( $field_value ) < $validation_value ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %d: minimum length */
-                            sprintf( esc_html__( 'Field must be at least %d characters long.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must be at least %d characters long.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MAX_LENGTH:
                     if ( strlen( $field_value ) > $validation_value ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %d: maximum length */
-                            sprintf( esc_html__( 'Field must be at most %d characters long.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must be at most %d characters long.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MIN_WORDS:
                     if ( str_word_count( $field_value ) < $validation_value ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %d: minimum words */
-                            sprintf( esc_html__( 'Field must have at least %d words.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must have at least %d words.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MAX_WORDS:
                     if ( str_word_count( $field_value ) > $validation_value ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %d: maximum words */
-                            sprintf( esc_html__( 'Field must have at most %d words.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must have at most %d words.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_STARTS_WITH:
                     if ( strpos( $field_value, $validation_value ) !== 0 ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %s: validation value the field must start with */
-                            sprintf( esc_html__( 'Field must start with %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must start with %s.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_ENDS_WITH:
                     if ( substr( $field_value, -strlen( $validation_value ) ) !== $validation_value ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %s: validation value the field must end with */
-                            sprintf( esc_html__( 'Field must end with %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must end with %s.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_CONTAINS:
                     if ( strpos( $field_value, $validation_value ) === false ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %s: validation value the field must contain */
-                            sprintf( esc_html__( 'Field must contain %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must contain %s.',
+                            $validation_value
                         );
                     }
                     break;
@@ -163,27 +180,33 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     $field_to_match = $fields[ $validation_value ];
 
                     if ( $field_value !== $field_to_match ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            esc_html__( 'Field does not match the required field.', 'ait-form-validation-action-addon-for-elementor' )
+                            $custom_error_message,
+                            'Field does not match the required field.'
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_AFTER_THAN:
                     if ( strtotime( $field_value ) <= strtotime( $validation_value ) ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %s: validation value the field must be after */
-                            sprintf( esc_html__( 'Field must be after %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must be after %s.',
+                            $validation_value
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_BEFORE_THAN:
                     if ( strtotime( $field_value ) >= strtotime( $validation_value ) ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %s: validation value the field must be before */
-                            sprintf( esc_html__( 'Field must be before %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must be before %s.',
+                            $validation_value
                         );
                     }
                     break;
@@ -197,9 +220,11 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     $field_to_match = $fields[ $validation_value ];
 
                     if ( strtotime( $field_value ) <= strtotime( $field_to_match ) ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            esc_html__( 'Field must be after the required field.', 'ait-form-validation-action-addon-for-elementor' )
+                            $custom_error_message,
+                            'Field must be after the required field.'
                         );
                     }
                     break;
@@ -213,24 +238,53 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                     $field_to_match = $fields[ $validation_value ];
 
                     if ( strtotime( $field_value ) >= strtotime( $field_to_match ) ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            esc_html__( 'Field must be before the required field.', 'ait-form-validation-action-addon-for-elementor' )
+                            $custom_error_message,
+                            'Field must be before the required field.'
                         );
                     }
                     break;
                 case Ait_Validation_Action_Elementor_Forms_Constants::ACTION_MATCHES_REGEX:
                     if ( ! preg_match( $validation_value, $field_value ) ) {
-                        $ajax_handler->add_error(
+                        $this->add_validation_error(
+                            $ajax_handler,
                             $validation_field_id,
-                            /* translators: %s: validation value the field must match */
-                            sprintf( esc_html__( 'Field must match the required pattern %s.', 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                            $custom_error_message,
+                            'Field must match the required pattern %s.',
+                            $validation_value
                         );
                     }
                     break;
             }
         }
 
+    }
+
+    /**
+     * Add validation error with custom or default message.
+     *
+     * @since 1.0.0
+     * @access private
+     * @param \ElementorPro\Modules\Forms\Classes\Ajax_Handler $ajax_handler
+     * @param string $field_id
+     * @param string $custom_message
+     * @param string $default_message
+     * @param mixed $validation_value
+     */
+    private function add_validation_error( $ajax_handler, $field_id, $custom_message, $default_message, $validation_value = null ) {
+        if ( !empty( $custom_message ) ) {
+            $error_message = $validation_value !== null
+                ? esc_html( sprintf( $custom_message, $validation_value ) )
+                : esc_html( $custom_message );
+        } else {
+            $error_message = $validation_value !== null
+                ? sprintf( esc_html__( $default_message, 'ait-form-validation-action-addon-for-elementor' ), $validation_value )
+                : esc_html__( $default_message, 'ait-form-validation-action-addon-for-elementor' );
+        }
+
+        $ajax_handler->add_error( $field_id, $error_message );
     }
 
     /**
@@ -294,6 +348,13 @@ class Ait_Validation_Action extends \ElementorPro\Modules\Forms\Classes\Action_B
                         'name' => 'validation_value',
                         'description' => esc_html__( 'Enter the value to validate against. For `Matches Field`, this should be another form field ID.', 'ait-form-validation-action-addon-for-elementor' ),
                         'label' => esc_html__( 'Validation Value', 'ait-form-validation-action-addon-for-elementor' ),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'default' => '',
+                    ],
+                    [
+                        'name' => 'custom_error_message',
+                        'description' => esc_html__( 'Optional custom error message. Use %s as placeholder for the validation value. Leave blank to use the default.', 'ait-form-validation-action-addon-for-elementor' ),
+                        'label' => esc_html__( 'Custom Error Message', 'ait-form-validation-action-addon-for-elementor' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
                         'default' => '',
                     ]

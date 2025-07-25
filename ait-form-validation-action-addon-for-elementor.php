@@ -16,7 +16,7 @@
  * Plugin Name:       Form Validation Action Addon for Elementor
  * Plugin URI:        https://aitorres.com/projects/ait-form-validation-action-addon-for-elementor/
  * Description:       Add a custom validation action for Forms to your Elementor installation to run server-side validation for your form fields.
- * Version:           1.3.0
+ * Version:           1.4.0
  * Author:            Andrés Ignacio Torres
  * Author URI:        https://aitorres.com/
  * License:           GPL-2.0+
@@ -25,8 +25,8 @@
  * Domain Path:       /languages
  *
  * Requires Plugins: elementor
- * Elementor tested up to: 3.28.3
- * Elementor Pro tested up to: 3.28.1
+ * Elementor tested up to: 3.30.1
+ * Elementor Pro tested up to: 3.30.1
  */
 
 // If this file is called directly, abort.
